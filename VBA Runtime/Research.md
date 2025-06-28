@@ -538,3 +538,29 @@ Sub:2240D1B0984
 
 
 ```
+
+
+# Test 5 - Where is Err object
+
+## Inputs
+
+```vb
+Sub t()
+  Dim x As Long
+  Debug.Print VarPtr(Err) - VarPtr(x)
+End Sub
+```
+
+## Outputs
+
+```
+-8
+-8
+-8
+```
+
+## Conclusion
+
+Err object (or variable) is always defined at the TOP of the stack!!!
+
+This is huuuge!
