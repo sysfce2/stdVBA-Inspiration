@@ -1,0 +1,129 @@
+{
+	"configuration.inherits": "Defaults",
+	"project.appTitle": "stdVBA",
+	"project.buildPath": "${SourcePath}\\Build\\${ProjectName}_${Architecture}.${FileExtension}",
+	"project.buildType": "ActiveX DLL",
+	"project.description": "stdVBA",
+	"project.dllRegisterLocalMachine": false,
+	"project.exportAfterSave": true,
+	"project.exportPath": "${SourcePath}\\src",
+	"project.exportPathIsV2": true,
+	"project.id": "{6E10B3B7-7EA0-47E0-A8A3-8F5F8B4ABD01}",
+	"project.name": "stdVBA",
+	"project.optionExplicit": true,
+	"project.references": [
+		{
+			"id": "{00020430-0000-0000-C000-000000000046}",
+			"lcid": 0,
+			"name": "OLE Automation",
+			"path32": "C:\\Windows\\SysWOW64\\stdole2.tlb",
+			"path64": "C:\\Windows\\System32\\stdole2.tlb",
+			"symbolId": "stdole",
+			"versionMajor": 2,
+			"versionMinor": 0
+		},
+		{
+			"hasBeenSplit": true,
+			"id": "{F50B82D0-DCAB-43FE-9631-11959D4A4728}",
+			"isCompilerPackage": true,
+			"licence": "",
+			"name": "[COMPILER PACKAGE] ",
+			"path32": "",
+			"path64": "",
+			"publisher": "TWINBASIC-COMPILER",
+			"symbolId": "VB",
+			"versionBuild": 0,
+			"versionMajor": 0,
+			"versionMinor": 0,
+			"versionRevision": 0
+		},
+		{
+			"autoCtlExt": true,
+			"id": "{00020813-0000-0000-C000-000000000046}",
+			"lcid": 0,
+			"name": "Microsoft Excel 16.0 Object Library",
+			"path32": "",
+			"path64": "C:\\Program Files\\Microsoft Office\\Root\\Office16\\EXCEL.EXE",
+			"symbolId": "Excel",
+			"versionMajor": 1,
+			"versionMinor": 9
+		},
+		{
+			"autoCtlExt": true,
+			"id": "{00020905-0000-0000-C000-000000000046}",
+			"lcid": 0,
+			"name": "Microsoft Word 16.0 Object Library",
+			"path32": "",
+			"path64": "C:\\Program Files\\Microsoft Office\\Root\\Office16\\MSWORD.OLB",
+			"symbolId": "Word",
+			"versionMajor": 8,
+			"versionMinor": 7
+		},
+		{
+			"autoCtlExt": true,
+			"id": "{91493440-5A91-11CF-8700-00AA0060263B}",
+			"lcid": 0,
+			"name": "Microsoft PowerPoint 16.0 Object Library",
+			"path32": "",
+			"path64": "C:\\Program Files\\Microsoft Office\\Root\\Office16\\MSPPT.OLB",
+			"symbolId": "PowerPoint",
+			"versionMajor": 2,
+			"versionMinor": 12
+		},
+		{
+			"autoCtlExt": true,
+			"id": "{4AFFC9A0-5F99-101B-AF4E-00AA003F0F07}",
+			"lcid": 0,
+			"name": "Microsoft Access 16.0 Object Library",
+			"path32": "",
+			"path64": "C:\\Program Files\\Microsoft Office\\Root\\Office16\\MSACC.OLB",
+			"symbolId": "Access",
+			"versionMajor": 9,
+			"versionMinor": 0
+		},
+		{
+			"autoCtlExt": true,
+			"id": "{0D452EE1-E08F-101A-852E-02608C4D0BB4}",
+			"lcid": 0,
+			"name": "Microsoft Forms 2.0 Object Library",
+			"path32": "",
+			"path64": "C:\\Program Files\\Microsoft Office\\Root\\VFS\\System\\FM20.DLL",
+			"symbolId": "MSForms",
+			"versionMajor": 2,
+			"versionMinor": 0
+		},
+		{
+			"autoCtlExt": true,
+			"id": "{00062FFF-0000-0000-C000-000000000046}",
+			"lcid": 0,
+			"name": "Microsoft Outlook 16.0 Object Library",
+			"path32": "",
+			"path64": "C:\\Program Files\\Microsoft Office\\Root\\Office16\\MSOUTL.OLB",
+			"symbolId": "OutlookCtl",
+			"versionMajor": 9,
+			"versionMinor": 6
+		},
+		{
+			"autoCtlExt": true,
+			"id": "{0002123C-0000-0000-C000-000000000046}",
+			"lcid": 0,
+			"name": "Microsoft Publisher 16.0 Object Library",
+			"path32": "",
+			"path64": "C:\\Program Files\\Microsoft Office\\Root\\Office16\\MSPUB.TLB",
+			"symbolId": "Publisher",
+			"versionMajor": 2,
+			"versionMinor": 3
+		}
+	],
+	"project.settingsVersion": 1,
+	"project.warnings": {
+		"errors": [],
+		"hints": [],
+		"ignored": [],
+		"info": [
+			"TB0003"
+		],
+		"warnings": []
+	},
+	"runtime.useUnicodeStandardLibrary": true
+}
