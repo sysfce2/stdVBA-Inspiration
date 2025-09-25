@@ -1,0 +1,110 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+  Persistable = 0  'NotPersistable
+  DataBindingBehavior = 0  'vbNone
+  DataSourceBehavior  = 0  'vbNone
+  MTSTransactionMode  = 0  'NotAnMTSObject
+END
+Attribute VB_Name = "DeviceInformationCollection"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+' Autor: F. Schüler (frank@activevb.de)
+' Datum: 10/2023
+
+Option Explicit
+
+' ----==== Const ====----
+Private Const Windows_Devices_Enumeration_DeviceInformationCollection As String = "Windows.Devices.Enumeration.DeviceInformationCollection"
+
+' ----==== Enums ====----
+Private Enum vtb_Interfaces
+
+    ' IVectorView_IDeviceInformationCollection
+    IVectorView_IDeviceInformationCollection_GetAt = 6
+    IVectorView_IDeviceInformationCollection_GetSize = 7
+    
+End Enum
+
+' ----==== Variablen ====----
+Private m_pIVectorView_IDeviceInformationCollection As Long
+
+' ----==== Class ====----
+Private Sub Class_Initialize()
+    '
+End Sub
+
+Private Sub Class_Terminate()
+    Call ReleaseIfc(m_pIVectorView_IDeviceInformationCollection)
+End Sub
+
+' ----==== Properties ====----
+Public Property Get Ifc() As Long
+    Ifc = m_pIVectorView_IDeviceInformationCollection
+End Property
+
+Public Property Let Ifc(ByVal pIVectorView_IDeviceInformationCollection As Long)
+    Call ReleaseIfc(m_pIVectorView_IDeviceInformationCollection)
+    m_pIVectorView_IDeviceInformationCollection = pIVectorView_IDeviceInformationCollection
+End Property
+
+'IVectorView_IDeviceInformationCollection
+Public Property Get Size() As Long
+    Dim Ret As Long
+    If m_pIVectorView_IDeviceInformationCollection <> 0& Then
+        Dim value As Long
+        If Invoke(m_pIVectorView_IDeviceInformationCollection, _
+                  IVectorView_IDeviceInformationCollection_GetSize, _
+                  VarPtr(value)) = S_OK Then
+            Ret = value
+        End If
+    End If
+    Size = Ret
+End Property
+
+' ----==== Functions ====----
+'IVectorView_IDeviceInformationCollection
+Public Function GetAt(ByVal Index As Long) As DeviceInformation
+    Dim Ret As DeviceInformation
+    If m_pIVectorView_IDeviceInformationCollection <> 0& Then
+        Dim pIDeviceInformation As Long
+        If Invoke(m_pIVectorView_IDeviceInformationCollection, _
+                  IVectorView_IDeviceInformationCollection_GetAt, _
+                  Index, _
+                  VarPtr(pIDeviceInformation)) = S_OK Then
+            If pIDeviceInformation <> 0& Then
+                Set Ret = New DeviceInformation
+                Ret.Ifc = pIDeviceInformation
+            End If
+        End If
+    End If
+    Set GetAt = Ret
+End Function
+
+' ----==== Extra Functions ====----
+Public Function GetAll() As DeviceInformation()
+    Dim Ret() As DeviceInformation
+    Dim count As Long
+    count = Me.Size
+    If count > 0& Then
+        ReDim Ret(count - 1)
+        Dim Item As Long
+        For Item = 0 To count - 1
+            Set Ret(Item) = Me.GetAt(Item)
+        Next
+    End If
+    GetAll = Ret
+End Function
+
+' ----==== Invoke Interface ====----
+Private Function Invoke(ByVal pInterface As Long, _
+                        ByVal vtb As vtb_Interfaces, _
+                        ParamArray var()) As Variant
+    If pInterface <> 0& Then
+        Invoke = OleInvoke(pInterface, vtb, var)
+    End If
+End Function
+
+
